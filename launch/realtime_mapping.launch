@@ -1,30 +1,25 @@
 <launch>
-	<arg name="model" default="RS32" />
-	<arg name="device_ip" default="192.168.1.200" />
-	<arg name="msop_port" default="6699" />
-	<arg name="difop_port" default="7788" />
-	<arg name="lidar_param_path" default="$(find rslidar_pointcloud)/data/configuration_files_161192401427/"/>
-
 	<node  name="rslidar_node" pkg="rslidar_driver" type="rslidar_node" output="screen" >
-		<param name="model" value="$(arg model)"/>
-		<param name="device_ip" value="$(arg device_ip)" />
-		<param name="msop_port" value="$(arg msop_port)" />
-		<param name="difop_port" value="$(arg difop_port)"/>
+		<param name="model" value="RS32"/>
+		<param name="device_ip" value="192.168.1.200" />
+		<param name="msop_port" value="6699" />
+		<param name="difop_port" value="7788"/>
 		<param name="cut_angle" value="0.0" />
 		<!--param name="pcap" value="path_to_pcap"/-->
 	</node>
 
 	<node  name="cloud_node" pkg="rslidar_pointcloud" type="cloud_node" output="screen" >
-		<param name="model" value="$(arg model)"/>
-		<param name="curves_path" value="$(arg lidar_param_path)/curves.csv" />
-		<param name="angle_path" value="$(arg lidar_param_path)/angle.csv" />
-		<param name="channel_path" value="$(arg lidar_param_path)/ChannelNum.csv" />
-		<param name="curves_rate_path" value="$(arg lidar_param_path)/CurveRate.csv" />
+		<param name="model" value="RS32"/>
+		<param name="curves_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/curves.csv" />
+		<param name="angle_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/angle.csv" />
+		<param name="channel_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/ChannelNum.csv" />
+		<param name="curves_rate_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/CurveRate.csv" />
 		<param name="max_distance" value="200"/>
 		<param name="min_distance" value="0.2"/>
 		<param name="resolution_type" value="0.5cm"/>
 		<param name="intensity_mode" value="1"/>
 	</node>
+
 	<node pkg="norlab_icp_mapper" type="mapper_node" name="mapper_node">
 		<remap from="points_in" to="rslidar_points"/>
 		<param name="sensor_frame" value="rslidar"/>
