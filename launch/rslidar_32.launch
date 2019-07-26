@@ -1,0 +1,22 @@
+<launch>
+	<node  name="rslidar_node" pkg="rslidar_driver" type="rslidar_node" output="screen" >
+                <param name="model" value="RS32"/>
+                <param name="device_ip" value="192.168.1.200" />
+                <param name="msop_port" value="6699" />
+                <param name="difop_port" value="7788"/>
+                <param name="cut_angle" value="0.0" />
+                <!--param name="pcap" value="path_to_pcap"/-->
+        </node>
+
+        <node  name="cloud_node" pkg="rslidar_pointcloud" type="cloud_node" output="screen" >
+                <param name="model" value="RS32"/>
+                <param name="curves_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/curves.csv" />
+                <param name="angle_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/angle.csv" />
+                <param name="channel_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/ChannelNum.csv" />
+                <param name="curves_rate_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/CurveRate.csv" />
+                <param name="max_distance" value="200"/>
+                <param name="min_distance" value="0.2"/>
+                <param name="resolution_type" value="0.5cm"/>
+                <param name="intensity_mode" value="1"/>
+        </node>
+</launch>
