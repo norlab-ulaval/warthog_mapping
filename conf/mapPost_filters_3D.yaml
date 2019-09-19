@@ -1,0 +1,11 @@
+# - RandomSamplingDataPointsFilter:
+#       prob: 0.9
+- SurfaceNormalDataPointsFilter:
+      knn: 15
+      epsilon: 3.16
+      keepNormals: 1
+      keepDensities: 1
+
+
+#- MaxDensityDataPointsFilter:
+#    maxDensity: 10.0

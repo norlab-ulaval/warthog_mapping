@@ -1,0 +1,42 @@
+matcher:
+  KDTreeMatcher:
+    knn: 3
+    maxDist: 2.0
+    epsilon: 1
+
+
+outlierFilters:
+# - VarTrimmedDistOutlierFilter:
+#       minRatio: 0.3
+#       maxRatio: 1.0
+#       lambda: 2.5
+ # - RobustOutlierFilter:
+ #       tuning: 2.0
+ #       robustFct: "cauchy"
+ #       scaleEstimator: "mad"
+ - TrimmedDistOutlierFilter:
+    ratio: 0.7
+
+
+errorMinimizer:
+  PointToPlaneErrorMinimizer:
+    force4DOF: 0
+    forceXYZOnly: 0
+
+
+transformationCheckers:
+  - DifferentialTransformationChecker:
+      minDiffRotErr: 0.001
+      minDiffTransErr: 0.01
+      smoothLength: 2
+  - CounterTransformationChecker:
+      maxIterationCount: 40
+  - BoundTransformationChecker:
+      maxRotationNorm: 1.1
+      maxTranslationNorm: 15.00
+
+inspector:
+  NullInspector
+
+logger:
+  NullLogger
