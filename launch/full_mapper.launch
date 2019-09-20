@@ -1,0 +1,63 @@
+<launch>
+	<include file="$(find warthog_mapping)/launch/magwick_filter.launch"/>
+	<include file="$(find warthog_mapping)/launch/warthog_offline_dynamic_mapper.launch"/>
+	<include file="$(find norlab_imu_tools)/launch/warthog_imu_and_wheel_odom.launch"/>
+
+	<group ns="highlevel_dummy">
+        	<param name="target_speed" value="1.5" />
+        	<param name="obstacle_radius" value="0.45" />
+
+        <group ns="planner">
+            	<param name="reversed" value="false" />
+            	<param name="goal_dist_threshold" value="0.25" />
+            	<param name="goal_angle_threshold" value="5" />
+            	<param name="allow_forward" value="true" />
+            	<param name="allow_backward" value="false" />
+            	<param name="ackermann_la" value="1.0" />
+            	<param name="ackermann_steer_steps" value="2" />
+            	<param name="ackermann_max_steer_angle" value="40" />
+            	<param name="ackermann_steer_delta" value="20" />
+        </group>
+    </group>
+
+    	<group ns="path_follower" >
+        	<param name="controller_type" value="kinematic_hbz" />
+        <group ns="controller" >
+            <group ns="kinematic_hbz">
+                <param name="k1" value="1.0" />
+                <param name="k2" value="1.0" />
+
+                <param name="lambda" value="1" />
+                <param name="theta_a" value="2*0.785398" />
+
+                <param name="x_ICR" value="0.24"/>
+                <param name="y_ICR_l" value="0.5" />
+                <param name="y_ICR_r" value="-0.5" />
+                <param name="alpha_l" value="0.85" />
+                <param name="alpha_r" value="0.85" />
+
+                <param name="max_angular_velocity" value="0.5" />
+                <param name="epsilon" value="0.5" />
+                <param name="b" value="1.0" />
+
+                <!-- param name="k1" value="3.0" />
+                <param name="k2" value="5.0" />
+
+                <param name="gamma" value="5.0" />
+                <param name="theta_a" value="2*0.78539816339" />
+                <param name="max_angular_velocity" value="0.5" />
+                <param name="epsilon" value="0.5" />
+                <param name="b" value="0.2" / -->
+
+                <!-- param name="look_ahead_dist" value="1.0" />
+                <param name="k_o" value="0.0" />
+                <param name="k_g" value="0.5" />
+                <param name="k_w" value="0.0" />
+                <param name="k_curv" value="0.0" />
+                <param name="obst_threshold" value="3.0" / -->
+            </group>
+	</group>    
+	</group>
+
+</launch>
+

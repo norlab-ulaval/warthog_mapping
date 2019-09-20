@@ -20,8 +20,6 @@ outlierFilters:
 
 errorMinimizer:
   PointToPlaneErrorMinimizer:
-    force4DOF: 0
-    forceXYZOnly: 0
 
 
 transformationCheckers:
