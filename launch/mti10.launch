@@ -1,0 +1,19 @@
+<launch>
+	<node pkg="xsens_driver" type="mtnode.py" name="xsens_driver" output="screen" >
+		<remap from="/imu/data" to="/MTI_imu/data_raw"/>
+		<remap from="/imu/mag" to="/MTI_imu/mag_raw"/>
+		<remap from="/imu_data_str" to="/MTI_imu/imu_data_str"/>
+		<param name="device" value="auto"/>
+		<param name="baudrate" value="0"/>
+		<param name="timeout" value="0.002"/>
+		<param name="initial_wait" value="0.1"/>
+		<param name="frame_id" value="/mti10"/>
+		<param name="frame_local" value="ENU"/>
+		<param name="no_rotation_duration" value="0"/>
+		<rosparam param="angular_velocity_covariance_diagonal" subst_value="True">[0.0004, 0.0004, 0.0004]</rosparam>
+		<rosparam param="linear_acceleration_covariance_diagonal" subst_value="True">[0.0004, 0.0004, 0.0004]</rosparam>
+		<rosparam param="orientation_covariance_diagonal" subst_value="True">[0.01745, 0.01745, 0.15708]</rosparam>
+	</node>
+
+	<include file="$(find warthog_mapping)/launch/magwick_filter.launch"/>
+</launch>

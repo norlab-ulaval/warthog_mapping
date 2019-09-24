@@ -1,5 +1,6 @@
 <launch>
 	<node  name="rslidar_node" pkg="rslidar_driver" type="rslidar_node" output="screen" >
+		<param name="frame_id" value="rslidar32"/>
                 <param name="model" value="RS32"/>
                 <param name="device_ip" value="192.168.1.200" />
                 <param name="msop_port" value="6699" />
@@ -9,6 +10,7 @@
         </node>
 
         <node  name="cloud_node" pkg="rslidar_pointcloud" type="cloud_node" output="screen" >
+		<param name="output_points_topic" value="rslidar32_points" />
                 <param name="model" value="RS32"/>
                 <param name="curves_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/curves.csv" />
                 <param name="angle_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/angle.csv" />
