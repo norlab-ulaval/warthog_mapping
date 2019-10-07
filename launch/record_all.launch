@@ -20,7 +20,8 @@
 /imu/data_raw
 /imu/mag
 /imu_and_wheel_odom
-/nmea_sentence
+/nmea_sentence_back
+/nmea_sentence_front
 /imu_filter/parameter_descriptions
 /imu_filter/parameter_updates
 /imu_filter_node_magwick/parameter_descriptions

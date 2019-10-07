@@ -6,3 +6,5 @@
     zMin: -1
     zMax: 0.5
     removeInside: 1
+
+-ObservationDirectionDataPointsFilter:
