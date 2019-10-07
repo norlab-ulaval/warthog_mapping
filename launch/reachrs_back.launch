@@ -1,5 +1,6 @@
 <launch>
 	<node pkg="nmea_navsat_driver" type="nmea_topic_serial_reader" name="nmea_topic_serial_reader_back" output="screen" >
+		<remap from="nmea_sentence" to="nmea_sentence_back"/>
 		<param name="baud" value="115200"/>
 		<param name="port" value="/dev/ttyS0"/>
 	</node>
