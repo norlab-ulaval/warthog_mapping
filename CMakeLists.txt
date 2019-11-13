@@ -7,7 +7,9 @@ project(warthog_mapping)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED)
+find_package(catkin REQUIRED COMPONENTS
+             rospy
+             warthog_mapping_msgs)
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
@@ -101,7 +103,7 @@ find_package(catkin REQUIRED)
 catkin_package(
 #  INCLUDE_DIRS include
 #  LIBRARIES warthog_mapping
-#  CATKIN_DEPENDS other_catkin_pkg
+CATKIN_DEPENDS warthog_mapping_msgs rospy
 #  DEPENDS system_lib
 )
 
