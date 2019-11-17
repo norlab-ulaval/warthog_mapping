@@ -7,7 +7,7 @@ from warthog_mapping_msgs.msg import Wifi_link_state
 
 encoding = 'utf-8'
 wifi_process_name = 'iwconfig'
-wifi_interface = 'wlp3s0'
+wifi_interface = 'wls5'
 signal_level_string_start = 'Signal level='
 signal_level_string_end = ' dBm'
 signal_ssid_string_start = 'ESSID:"'
