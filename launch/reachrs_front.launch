@@ -5,4 +5,12 @@
 		<!--<param name="port" value="/dev/ttyS1"/>-->
 		<param name="port" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A6031J4Y-if00-port0"/>
 	</node>
+
+	<node pkg="nmea_navsat_driver" type="nmea_topic_driver" name="nmea_topic_driver_front" output="screen" >
+		<remap from="nmea_sentence" to="nmea_sentence_front" />
+		<remap from="fix" to="gps/fix_front" />
+		<remap from="vel" to="gps/vel_front" />
+		<remap from="time_reference" to="gps/time_reference_front" />
+	</node>
+
 </launch>
