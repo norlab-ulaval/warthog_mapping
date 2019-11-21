@@ -66,7 +66,14 @@
 /warthog_velocity_controller/cmd_vel
 /warthog_velocity_controller/odom
 /warthog_velocity_controller/parameter_descriptions
-/warthog_velocity_controller/parameter_updates"
+/warthog_velocity_controller/parameter_updates
+/wifi_link_status
+/gps/fix_back
+/gps/fix_front
+/gps/time_reference_back
+/gps/time_reference_front
+/gps/vel_back
+/gps/vel_front"
        />
 
 </launch>
