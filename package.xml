@@ -50,7 +50,6 @@
   <!--   <doc_depend>doxygen</doc_depend> -->
   <buildtool_depend>catkin</buildtool_depend>
   <depend>rospy</depend>
-  <depend>warthog_mapping_msgs</depend>
 
   <!-- The export tag contains other, unspecified, tags -->
   <export>
