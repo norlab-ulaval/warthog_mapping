@@ -1,5 +1,5 @@
 <launch>
-	<node pkg="norlab_icp_mapper" type="mapper_node" name="mapper_node">
+	<node pkg="norlab_icp_mapper_ros" type="mapper_node" name="mapper_node">
 		<remap from="points_in" to="rslidar32_points"/>
 		<param name="sensor_frame" value="rslidar32"/>
 		<param name="robot_frame" value="base_link"/>
