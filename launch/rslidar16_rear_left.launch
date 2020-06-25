@@ -1,0 +1,23 @@
+<launch>
+	<node  name="rslidar_node_rear_left_rs16" pkg="rslidar_driver" type="rslidar_node" output="screen" >
+		<param name="frame_id" value="rslidar16_left"/>
+                <param name="model" value="RS16"/>
+                <param name="device_ip" value="192.168.3.200" />
+                <param name="msop_port" value="6699" />
+                <param name="difop_port" value="7788"/>
+                <param name="cut_angle" value="0.0" />
+                <!--param name="pcap" value="path_to_pcap"/-->
+        </node>
+
+        <node  name="cloud_node_rear_left_rs16" pkg="rslidar_pointcloud" type="cloud_node" output="screen" >
+		<param name="output_points_topic" value="rslidar16_left_points" />
+                <param name="model" value="RS16"/>
+                <param name="curves_path" value="$(find rslidar_pointcloud)/data/configuration_files_left_rear_rs16_161191802847/curves.csv" />
+                <param name="angle_path" value="$(find rslidar_pointcloud)/data/configuration_files_left_rear_rs16_161191802847/angle.csv" />
+                <param name="channel_path" value="$(find rslidar_pointcloud)/data/configuration_files_left_rear_rs16_161191802847/ChannelNum.csv" />
+                <param name="max_distance" value="200"/>
+                <param name="min_distance" value="0.2"/>
+                <param name="resolution_type" value="0.5cm"/>
+                <param name="intensity_mode" value="1"/>
+        </node>
+</launch>
