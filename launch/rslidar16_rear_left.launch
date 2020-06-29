@@ -3,6 +3,7 @@
 		<param name="frame_id" value="rslidar16_left"/>
                 <param name="model" value="RS16"/>
                 <param name="device_ip" value="192.168.3.200" />
+                <param name="host_ip" value="192.168.3.102" />
                 <param name="msop_port" value="6699" />
                 <param name="difop_port" value="7788"/>
                 <param name="cut_angle" value="0.0" />
@@ -20,4 +21,5 @@
                 <param name="resolution_type" value="0.5cm"/>
                 <param name="intensity_mode" value="1"/>
         </node>
+
 </launch>

@@ -3,13 +3,14 @@
 		<param name="frame_id" value="rslidar32"/>
                 <param name="model" value="RS32"/>
                 <param name="device_ip" value="192.168.1.200" />
+                <param name="host_ip" value="192.168.1.102" />
                 <param name="msop_port" value="6699" />
                 <param name="difop_port" value="7788"/>
                 <param name="cut_angle" value="0.0" />
                 <!--param name="pcap" value="path_to_pcap"/-->
         </node>
 
-        <node  name="cloud_node_front_rs32" pkg="rslidar_pointcloud" type="cloud_node" output="screen" >
+	<node  name="cloud_node_front_rs32" pkg="rslidar_pointcloud" type="cloud_node" output="screen" >
 		<param name="output_points_topic" value="rslidar32_points" />
                 <param name="model" value="RS32"/>
                 <param name="curves_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/curves.csv" />
@@ -21,4 +22,5 @@
                 <param name="resolution_type" value="0.5cm"/>
                 <param name="intensity_mode" value="1"/>
         </node>
+
 </launch>
