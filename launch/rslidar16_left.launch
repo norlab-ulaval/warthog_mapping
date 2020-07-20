@@ -12,10 +12,10 @@
 		<!--param name="pcap" value="path_to_pcap"/-->
 	</node>
 
-	<node  name="rslidar16_left_pointcloud" pkg="rslidar_pointcloud" type="cloud_node" output="screen" >
+	<node  name="rslidar16_left_pointcloud" pkg="rslidar_pointcloud_stamped" type="cloud_node_stamped" output="screen" >
 		<remap from="rslidar_packets" to="rslidar16_left_packets"/>
 		<remap from="rslidar_packets_difop" to="rslidar16_left_packets_difop"/>
-		<param name="output_points_topic" value="rslidar16_left_points" />
+		<param name="output_points_topic" value="rslidar_points" />
 		<param name="model" value="RS16"/>
 		<param name="curves_path" value="$(find rslidar_pointcloud)/data/configuration_files_left_rear_rs16_161191802847/curves.csv" />
 		<param name="angle_path" value="$(find rslidar_pointcloud)/data/configuration_files_left_rear_rs16_161191802847/angle.csv" />
