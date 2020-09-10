@@ -3,7 +3,7 @@
 		<remap from="/imu/data" to="/MTI_imu/data_raw"/>
 		<remap from="/imu/mag" to="/MTI_imu/mag_raw"/>
 		<remap from="/imu_data_str" to="/MTI_imu/imu_data_str"/>
-		<param name="device" value="/dev/serial/by-id/usb-Xsens_MTi-10_IMU_016820DB-if01-port0"/>
+		<param name="device" value="/dev/ttyS4"/>
 		<param name="baudrate" value="115200"/>
 		<param name="timeout" value="0.002"/>
 		<param name="initial_wait" value="0.1"/>
