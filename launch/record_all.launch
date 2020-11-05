@@ -7,6 +7,9 @@
 /MTI_imu/data_raw
 /MTI_imu/imu_data_str
 /MTI_imu/mag_raw
+/MTI30_imu/data_raw
+/MTI30_imu/imu_data_str
+/MTI30_imu/mag_raw
 /clicked_point
 /cloud_node/parameter_descriptions
 /cloud_node/parameter_updates
@@ -52,9 +55,8 @@
 /rosout
 /rosout_agg
 /rslidar32_points
-/rslidar_node/parameter_descriptions
-/rslidar_node/parameter_updates
-/rslidar_packets_difop
+/rslidar16_left_points
+/rslidar16_right_points
 /tf
 /tf_static
 /time_reference

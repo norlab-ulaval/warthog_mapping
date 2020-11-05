@@ -7,7 +7,7 @@
 		<param name="baudrate" value="115200"/>
 		<param name="timeout" value="0.002"/>
 		<param name="initial_wait" value="0.1"/>
-		<param name="frame_id" value="/mti10"/>
+		<param name="frame_id" value="mti10"/>
 		<param name="frame_local" value="ENU"/>
 		<param name="no_rotation_duration" value="0"/>
 		<rosparam param="angular_velocity_covariance_diagonal" subst_value="True">[0.0004, 0.0004, 0.0004]</rosparam>
@@ -24,4 +24,8 @@
 		<param name="fixed_frame" value="odom" />
 		<param name="publish_tf" value="false" />
 	</node>
+
+
+    <include file="$(find norlab_imu_tools)/launch/imu_bias_observer_for_warthog.launch"/>
+
 </launch>

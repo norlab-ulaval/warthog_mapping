@@ -15,7 +15,7 @@
 	<node  name="rslidar32_pointcloud" pkg="rslidar_pointcloud_stamped" type="cloud_node_stamped" output="screen" >
 		<remap from="rslidar_packets" to="rslidar32_packets"/>
 		<remap from="rslidar_packets_difop" to="rslidar32_packets_difop"/>
-		<param name="output_points_topic" value="rslidar_points" />
+		<param name="output_points_topic" value="rslidar32_points" />
 		<param name="model" value="RS32"/>
 		<param name="curves_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/curves.csv" />
 		<param name="angle_path" value="$(find rslidar_pointcloud)/data/configuration_files_161192401427/angle.csv" />

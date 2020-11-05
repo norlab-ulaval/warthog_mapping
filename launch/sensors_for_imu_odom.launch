@@ -3,7 +3,10 @@
 	<include file="$(find warthog_mapping)/launch/rslidar16_right.launch"/>
 	<include file="$(find warthog_mapping)/launch/rslidar16_left.launch"/>
 	<include file="$(find warthog_mapping)/launch/mti10.launch"/>
-	<include file="$(find norlab_imu_tools)/launch/warthog_imu_and_wheel_odom.launch"/>
+	<!-- <include file="$(find norlab_imu_tools)/launch/warthog_imu_and_wheel_odom.launch"/> -->
 	<include file="$(find warthog_mapping)/launch/reachrs_front.launch"/>
+        <include file="$(find warthog_mapping)/launch/imu_odom.launch"/>
 	<include file="$(find warthog_mapping)/launch/reachrs_back.launch"/>
+   
+
 </launch>
