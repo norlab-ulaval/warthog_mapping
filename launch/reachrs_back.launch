@@ -1,12 +1,12 @@
 <launch>
-	<node pkg="nmea_navsat_driver" type="nmea_topic_serial_reader" name="nmea_topic_serial_reader_back" output="screen" >
+	<node pkg="nmea_navsat_driver" type="nmea_topic_serial_reader" name="nmea_topic_serial_reader_back" >
 		<remap from="nmea_sentence" to="nmea_sentence_back"/>
 		<param name="baud" value="115200"/>
 		<param name="port" value="/dev/ttyS0"/>
 		<!--<param name="port" value="/dev/serial/by-id/usb-Prolific_Technology_Inc._USB-Serial_Controller-if00-port0"/>-->
 	</node>
 
-	<node pkg="nmea_navsat_driver" type="nmea_topic_driver" name="nmea_topic_driver_back" output="screen" >
+	<node pkg="nmea_navsat_driver" type="nmea_topic_driver" name="nmea_topic_driver_back" >
 		<remap from="nmea_sentence" to="nmea_sentence_back" />
 		<remap from="fix" to="gps/fix_back" />
 		<remap from="vel" to="gps/vel_back" />

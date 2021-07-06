@@ -1,12 +1,12 @@
 <launch>
-	<node pkg="nmea_navsat_driver" type="nmea_topic_serial_reader" name="nmea_topic_serial_reader_front" output="screen" >
+	<node pkg="nmea_navsat_driver" type="nmea_topic_serial_reader" name="nmea_topic_serial_reader_front" >
 		<remap from="nmea_sentence" to="nmea_sentence_front"/>
 		<param name="baud" value="115200"/>
 		<param name="port" value="/dev/ttyS1"/>
 		<!--<param name="port" value="/dev/serial/by-id/usb-FTDI_FT232R_USB_UART_A6031J4Y-if00-port0"/>-->
 	</node>
 
-	<node pkg="nmea_navsat_driver" type="nmea_topic_driver" name="nmea_topic_driver_front" output="screen" >
+	<node pkg="nmea_navsat_driver" type="nmea_topic_driver" name="nmea_topic_driver_front" >
 		<remap from="nmea_sentence" to="nmea_sentence_front" />
 		<remap from="fix" to="gps/fix_front" />
 		<remap from="vel" to="gps/vel_front" />

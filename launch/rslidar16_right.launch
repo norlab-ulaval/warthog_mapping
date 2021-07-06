@@ -1,5 +1,5 @@
 <launch>
-	<node  name="rslidar16_right_driver" pkg="rslidar_driver" type="rslidar_node" output="screen" >
+	<node  name="rslidar16_right_driver" pkg="rslidar_driver" type="rslidar_node" >
 		<remap from="rslidar_packets" to="rslidar16_right_packets"/>
 		<remap from="rslidar_packets_difop" to="rslidar16_right_packets_difop"/>
 		<param name="frame_id" value="rslidar16_right"/>
@@ -12,7 +12,7 @@
 		<!--param name="pcap" value="path_to_pcap"/-->
 	</node>
 
-	<node  name="rslidar16_right_pointcloud" pkg="rslidar_pointcloud_stamped" type="cloud_node_stamped" output="screen" >
+	<node  name="rslidar16_right_pointcloud" pkg="rslidar_pointcloud_stamped" type="cloud_node_stamped" >
 		<remap from="rslidar_packets" to="rslidar16_right_packets"/>
 		<remap from="rslidar_packets_difop" to="rslidar16_right_packets_difop"/>
 		<param name="output_points_topic" value="rslidar16_right_points" />

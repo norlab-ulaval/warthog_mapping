@@ -20,6 +20,7 @@ outlierFilters:
 
 errorMinimizer:
   PointToPlaneErrorMinimizer:
+         force4DOF: 1
 
 
 transformationCheckers:
@@ -30,11 +31,18 @@ transformationCheckers:
   - CounterTransformationChecker:
       maxIterationCount: 40
   - BoundTransformationChecker:
-      maxRotationNorm: 1.1
-      maxTranslationNorm: 15.00
+      maxRotationNorm: 1000000.1
+      maxTranslationNorm: 15000.00
 
 inspector:
   NullInspector
+
+#        VTKFileInspector: 
+#baseFileName: /home/robot/debug
+#dumpDataLinks: 1
+#dumpReading: 1
+#dumpReference: 1
+# dumpIterationInfo: 1
 
 logger:
   NullLogger

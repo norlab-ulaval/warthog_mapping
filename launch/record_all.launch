@@ -1,30 +1,48 @@
+<?xml version="1.0"?>
 <launch>
  
+<arg name="dalsa_camera_frequence_throttle"      default="1"/>
+
+<node name="camera_step1_throttler" type="throttle" pkg="topic_tools" args="messages /save_dalsa_camera_et1 $(arg dalsa_camera_frequence_throttle)" />
+<node name="camera_step2_throttler" type="throttle" pkg="topic_tools" args="messages /save_dalsa_camera_et2 $(arg dalsa_camera_frequence_throttle)" />
+<node name="camera_step3_throttler" type="throttle" pkg="topic_tools" args="messages /save_dalsa_camera_et3 $(arg dalsa_camera_frequence_throttle)" />
+<node name="camera_step4_throttler" type="throttle" pkg="topic_tools" args="messages /save_dalsa_camera_et4 $(arg dalsa_camera_frequence_throttle)" />
+<node name="camera_step5_throttler" type="throttle" pkg="topic_tools" args="messages /save_dalsa_camera_et5 $(arg dalsa_camera_frequence_throttle)" />
+<node name="camera_step6_throttler" type="throttle" pkg="topic_tools" args="messages /save_dalsa_camera_et6 $(arg dalsa_camera_frequence_throttle)" />
+<node name="camera_step7_throttler" type="throttle" pkg="topic_tools" args="messages /save_dalsa_camera_et7 $(arg dalsa_camera_frequence_throttle)" />
+<node name="camera_step8_throttler" type="throttle" pkg="topic_tools" args="messages /save_dalsa_camera_et8 $(arg dalsa_camera_frequence_throttle)" />
+
+
 
 <node pkg="rosbag" type="record" name="rosbag_record_node"
-       args="record
+       args="record 
 /MTI_imu/data
 /MTI_imu/data_raw
 /MTI_imu/imu_data_str
 /MTI_imu/mag_raw
-/MTI30_imu/data_raw
-/MTI30_imu/imu_data_str
-/MTI30_imu/mag_raw
+/camera_info
+/camera_parameters
 /clicked_point
-/cloud_node/parameter_descriptions
-/cloud_node/parameter_updates
 /cmd_lights
 /cmd_vel
+/dalsa_camera/metadata
+/dalsa_camera_8bits/compressed
 /diagnostics
 /diagnostics_agg
 /diagnostics_toplevel_state
+/gps/fix_back
+/gps/fix_front
+/gps/time_reference_back
+/gps/time_reference_front
+/gps/vel_back
+/gps/vel_front
+/hri_cmd_vel
+/hri_joy
 /icp_odom
 /imu/data
 /imu/data_raw
 /imu/mag
 /imu_and_wheel_odom
-/nmea_sentence_back
-/nmea_sentence_front
 /imu_filter/parameter_descriptions
 /imu_filter/parameter_updates
 /imu_filter_node_magwick/parameter_descriptions
@@ -39,11 +57,14 @@
 /left_drive/status/motor_temperature
 /left_drive/status/speed
 /left_drive/velocity
-/map
+/madgwick_filter/bias
 /mcu/cmd_lights
 /mcu/enable_motors
 /mcu/status
 /move_base_simple/goal
+/nmea_sentence_back
+/nmea_sentence_front
+/pwr_cons_info/mcu/status
 /rc_teleop/cmd_vel
 /right_drive/status/battery_current
 /right_drive/status/battery_voltage
@@ -54,9 +75,27 @@
 /right_drive/velocity
 /rosout
 /rosout_agg
-/rslidar32_points
-/rslidar16_left_points
-/rslidar16_right_points
+/rslidar16_left_driver/parameter_descriptions
+/rslidar16_left_driver/parameter_updates
+/rslidar16_left_packets
+/rslidar16_left_packets_difop
+/rslidar16_right_driver/parameter_descriptions
+/rslidar16_right_driver/parameter_updates
+/rslidar16_right_packets
+/rslidar16_right_packets_difop
+/rslidar32_driver/parameter_descriptions
+/rslidar32_driver/parameter_updates
+/rslidar32_packets
+/rslidar32_packets_difop
+/safety/emergency_stop
+/save_dalsa_camera_et1_throttle
+/save_dalsa_camera_et2_throttle
+/save_dalsa_camera_et3_throttle
+/save_dalsa_camera_et4_throttle
+/save_dalsa_camera_et5_throttle
+/save_dalsa_camera_et6_throttle
+/save_dalsa_camera_et7_throttle
+/save_dalsa_camera_et8_throttle
 /tf
 /tf_static
 /time_reference
@@ -69,14 +108,10 @@
 /warthog_velocity_controller/odom
 /warthog_velocity_controller/parameter_descriptions
 /warthog_velocity_controller/parameter_updates
-/wifi_link_status
-/gps/fix_back
-/gps/fix_front
-/gps/time_reference_back
-/gps/time_reference_front
-/gps/vel_back
-/gps/vel_front"
-       />
+/map
+/theodolite_master/theodolite_correction_timestamp
+/theodolite_master/theodolite_data"
+ />
 
 </launch>
 

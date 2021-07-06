@@ -1,4 +1,4 @@
 <launch>
-	<include file="$(find warthog_mapping)/launch/sensors.launch"/>
+	<include file="$(find warthog_mapping)/launch/sensors_camera.launch"/>
 	<include file="$(find warthog_mapping)/launch/realtime_mapping.launch"/>
 </launch>
