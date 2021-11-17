@@ -19,9 +19,9 @@
 		 <remap from="output_point_cloud" to="rslidar32_points_deskewed" />  
 	</node>
 
-	<!-- <node pkg="imu_odom" type="imu_odom_node" name="imu_odom_node" output="screen">
+	<!--node pkg="imu_odom" type="imu_odom_node" name="imu_odom_node" output="screen">
                 <remap from="imu_topic" to="/MTI_imu/data"/>
                 <param name="real_time" value="true"/>
                 <param name="imu_frame" value="mti10"/>
-        </node> -->
+        </node -->
 </launch>
