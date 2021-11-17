@@ -25,7 +25,5 @@
 		<param name="publish_tf" value="false" />
 	</node>
 
-
     <include file="$(find norlab_imu_tools)/launch/imu_bias_observer_for_warthog.launch"/>
-
 </launch>
