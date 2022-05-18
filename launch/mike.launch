@@ -1,0 +1,5 @@
+<launch>
+    <node pkg="warthog_mapping"
+                type="mike.sh" name="mike"
+                output="screen" args="$(arg experimentName)" />
+</launch>

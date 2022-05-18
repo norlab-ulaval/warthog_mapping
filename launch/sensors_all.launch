@@ -1,0 +1,14 @@
+<launch>
+	<include file="$(find warthog_mapping)/launch/rslidar32.launch"/>
+	<include file="$(find warthog_mapping)/launch/rslidar16_right.launch"/>
+	<include file="$(find warthog_mapping)/launch/rslidar16_left.launch"/>
+	<include file="$(find warthog_mapping)/launch/mti10.launch"/>
+	<include file="$(find norlab_imu_tools)/launch/warthog_imu_and_wheel_odom.launch"/>
+	<include file="$(find warthog_mapping)/launch/reachrs_front.launch"/>
+	<include file="$(find warthog_mapping)/launch/reachrs_back.launch"/>
+
+	<node name="pcl_deskew_node" pkg="pointcloud_motion_deskew" type="pointcloud2_deskew_node" >
+		<remap from="input_point_cloud" to="rslidar32_points" />
+		<remap from="output_point_cloud" to="rslidar32_points_deskewed" />
+	</node>
+</launch>
