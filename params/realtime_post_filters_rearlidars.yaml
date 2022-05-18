@@ -1,0 +1,7 @@
+- CutAtDescriptorThresholdDataPointsFilter:
+    descName: probabilityDynamic
+    useLargerThan: 1
+    threshold: 0.9
+
+- SurfaceNormalDataPointsFilter:
+    knn: 15
