@@ -8,7 +8,7 @@
     removeInside: 1
 
 - BoundingBoxDataPointsFilter:
-    xMin: -10
+    xMin: -6
     xMax: -1.5
     yMin: -2.5
     yMax: 2.5
@@ -17,6 +17,6 @@
     removeInside: 1
 
 - RandomSamplingDataPointsFilter:
-    prob: 0.7
+    prob: 0.2
 
 -ObservationDirectionDataPointsFilter:
