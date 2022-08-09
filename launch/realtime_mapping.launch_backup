@@ -7,9 +7,9 @@
 		<param name="input_filters_config" value="$(find warthog_mapping)/params/realtime_input_filters.yaml"/>
 		<param name="map_post_filters_config" value="$(find warthog_mapping)/params/realtime_post_filters.yaml"/>
 		<param name="map_update_condition" value="delay"/>
-		<param name="map_update_delay" value="1.5"/>
+		<param name="map_update_delay" value="0"/>
 		<param name="sensor_max_range" value="100"/>
-		<param name="min_dist_new_point" value="0.15"/>
+		<param name="min_dist_new_point" value="0.1"/>
 		<param name="compute_prob_dynamic" value="true"/>
 		<param name="map_tf_publish_rate" value="100"/>
 	</node>
