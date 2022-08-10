@@ -52,29 +52,4 @@ echo "'roslaunch wiln warthog.launch' command executed in 'wiln' screen"
 echo "Everything is started. Please verify each screen to confirm proper behaviour. There is the list: "
 screen -list
 
-sleep 5
-
-
-# FINISH STUFF
-echo "Stopping all processes...'"
-screen -X -S sensors_all stuff "^C"
-screen -X -S rosbag stuff "^C"
-screen -X -S mapping stuff "^C"
-screen -X -S wiln stuff "^C"
-echo "All processes have been stopped"
-
-echo "Moving log files and rosbag bags in separate folder"
-sleep 5
-mkdir $experimentName
-mv sensors_all_screen.log $experimentName
-mv rosbag_screen.log $experimentName
-mv mapping_screen.log $experimentName
-mv wiln_screen.log $experimentName
-mv rosbag.bag $experimentName
-echo "All log files and rosbag bags have been moved in separate folder called '$experimentName' located in .ros folder."
-
-echo "Finished. Closing..."
-
-
-# exit gracefully by returning a status
 exit 0
