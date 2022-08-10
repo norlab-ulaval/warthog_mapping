@@ -1,6 +1,6 @@
 matcher:
   KDTreeMatcher:
-    knn: 6
+    knn: 3
     maxDist: 2.0
     epsilon: 1
 
