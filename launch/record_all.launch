@@ -4,7 +4,7 @@
 
 
 <node pkg="rosbag" type="record" name="rosbag_record_node"
-       args="record 
+       args="record -o /media/robot/ssd-2nd/rosbag/record
 /MTI_imu/data
 /MTI_imu/data_raw
 /MTI_imu/imu_data_str
@@ -99,7 +99,7 @@
 /warthog_velocity_controller/parameter_updates
 /map
 /theodolite_master/theodolite_correction_timestamp
-/theodolite_master/theodolite_data -o /home/robot/Rosbag/record "
+/theodolite_master/theodolite_data"
 />
 
 </launch>
