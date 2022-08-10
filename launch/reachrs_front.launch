@@ -12,5 +12,4 @@
 		<remap from="vel" to="gps/vel_front" />
 		<remap from="time_reference" to="gps/time_reference_front" />
 	</node>
-
 </launch>
