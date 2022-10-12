@@ -1,0 +1,3 @@
+<launch>
+	<include file="$(find-pkg-share dalsa_genie_nano_c1920)/launch/dalsa_genie_nano_c1920.launch.xml"/>
+</launch>

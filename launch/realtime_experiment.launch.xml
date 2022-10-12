@@ -1,0 +1,4 @@
+<launch>
+	<include file="$(find-pkg-share warthog_mapping)/launch/sensors.launch.xml"/>
+	<include file="$(find-pkg-share warthog_mapping)/launch/realtime_mapping.launch.xml"/>
+</launch>
