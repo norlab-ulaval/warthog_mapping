@@ -1,0 +1,46 @@
+<launch>
+    <set_parameter name="use_sim_time" value="true" />
+
+    <node pkg="norlab_icp_mapper_ros" exec="mapper_node" name="mapper_node" output="screen">
+        <remap from="points_in" to="rslidar32_points_deskewed"/>
+        <param name="robot_frame" value="base_link"/>
+        <param name="odom_frame" value="odom"/>
+        <param name="icp_config" value="$(find-pkg-share warthog_mapping)/params/offline_icp_config.yaml"/>
+        <param name="input_filters_config" value="$(find-pkg-share warthog_mapping)/params/offline_input_filters.yaml"/>
+        <param name="map_post_filters_config" value="$(find-pkg-share warthog_mapping)/params/offline_post_filters.yaml"/>
+        <param name="map_update_condition" value="delay"/>
+        <param name="sensor_max_range" value="100.0"/>
+        <param name="min_dist_new_point" value="0.15"/>
+        <param name="compute_prob_dynamic" value="true"/>
+        <param name="map_tf_publish_rate" value="100.0"/>
+        <param name="is_online" value="true"/>
+        <param name="use_sim_time" value="true"/>
+    </node>
+
+    <node pkg="rviz2" exec="rviz2" name="rviz" output="log" args="-d /home/user/data/rviz_config/warthog.rviz">
+        <param name="use_sim_time" value="true"/>
+    </node>
+
+    <node pkg="norlab_imu_tools" exec="imu_and_wheel_odom_node" name="imu_and_wheel_odom_node" output="screen" respawn="true">
+        <remap from="imu_topic" to="/MTI_imu/data"/>
+        <remap from="wheel_odom_topic" to="/warthog_velocity_controller/odom"/>
+        <param name="odom_frame" value="odom"/>
+        <param name="base_frame" value="base_link"/>
+        <param name="publish_translation" value="True"/>
+        <param name="wheel_odom_velocity_scale_x" value="0.95"/>
+
+        <!--Pelicase box for skidoo, all angles in radians! -->
+        <param name="mag_north_correction_yaw" value="0.0"/>
+        ## If odom message needed
+        <param name="publish_odom" value="True"/>
+        <param name="odom_topic_name" value="imu_and_wheel_odom"/>
+        <param name="use_sim_time" value="true"/>
+    </node>
+
+    <include file="$(find-pkg-share warthog_description)/launch/description_launch.py"/>
+
+    <node  pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pointcloud2_deskew_node" output="screen" >
+        <remap from="input_point_cloud" to="/rslidar32_points" />
+        <remap from="output_point_cloud" to="/rslidar32_points_deskewed" />
+    </node>
+</launch>

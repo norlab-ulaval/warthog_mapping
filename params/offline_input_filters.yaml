@@ -1,0 +1,13 @@
+- BoundingBoxDataPointsFilter:
+    xMin: -1.5
+    xMax: 0.5
+    yMin: -1
+    yMax: 1
+    zMin: -1
+    zMax: 1.5
+    removeInside: 1
+
+- RandomSamplingDataPointsFilter:
+    prob: 0.2
+
+#- ObservationDirectionDataPointsFilter:
