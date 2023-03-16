@@ -1,5 +1,5 @@
 <launch>
-	<!-- node  name="rslidar32_driver" pkg="rslidar_driver" exec="rslidar_node" output="screen" >
+	<node  name="rslidar32_driver" pkg="rslidar_driver" exec="rslidar_node" output="screen" >
 		<remap from="rslidar_packets" to="rslidar32_packets"/>
 		<remap from="rslidar_packets_difop" to="rslidar32_packets_difop"/>
 		<param name="frame_id" value="rslidar32"/>
@@ -9,25 +9,25 @@
 		<param name="msop_port" value="6699" />
 		<param name="difop_port" value="7788"/>
 		<param name="cut_angle" value="0.0" />
-		<param name="pcap" value="path_to_pcap"/>
-	</node -->
-
-	<node name="rslidar32_sdk" pkg="rslidar_sdk" exec="rslidar_sdk_node" output="screen" >
-
+		<!--param name="pcap" value="path_to_pcap"/-->
 	</node>
 
-	<!-- node  name="rslidar32_pointcloud" pkg="rslidar_pointcloud" exec="cloud_node" output="screen" >
+	<!--node name="rslidar32_sdk" pkg="rslidar_sdk" exec="rslidar_sdk_node" output="screen" >
+
+	</node-->
+
+	<node  name="rslidar32_pointcloud" pkg="rslidar_pointcloud_stamped" exec="cloud_node_stamped" output="screen" >
 		<remap from="rslidar_packets" to="rslidar32_packets"/>
 		<remap from="rslidar_packets_difop" to="rslidar32_packets_difop"/>
 		<param name="output_points_topic" value="rslidar32_points" />
 		<param name="model" value="RS32"/>
-		<param name="curves_path" value="$(find-pkg-share rslidar_pointcloud)/data/configuration_files_161192401427/curves.csv" />
-		<param name="angle_path" value="$(find-pkg-share rslidar_pointcloud)/data/configuration_files_161192401427/angle.csv" />
-		<param name="channel_path" value="$(find-pkg-share rslidar_pointcloud)/data/configuration_files_161192401427/ChannelNum.csv" />
-		<param name="curves_rate_path" value="$(find-pkg-share rslidar_pointcloud)/data/configuration_files_161192401427/CurveRate.csv" />
-		<param name="max_distance" value="200"/>
+		<param name="curves_path" value="$(find-pkg-share rslidar_pointcloud_stamped)/data/configuration_files_161192401427/curves.csv" />
+		<param name="angle_path" value="$(find-pkg-share rslidar_pointcloud_stamped)/data/configuration_files_161192401427/angle.csv" />
+		<param name="channel_path" value="$(find-pkg-share rslidar_pointcloud_stamped)/data/configuration_files_161192401427/ChannelNum.csv" />
+		<param name="curves_rate_path" value="$(find-pkg-share rslidar_pointcloud_stamped)/data/configuration_files_161192401427/CurveRate.csv" />
+		<param name="max_distance" value="200.0"/>
 		<param name="min_distance" value="0.2"/>
 		<param name="resolution_type" value="0.5cm"/>
 		<param name="intensity_mode" value="1"/>
-	</node -->
+	</node>
 </launch>
