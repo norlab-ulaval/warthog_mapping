@@ -11,31 +11,35 @@
     <arg name="linear_acceleration_covariance_diagonal" default="[0.0004, 0.0004, 0.0004]"/>
     <arg name="orientation_covariance_diagonal" default="[0.01745, 0.01745, 0.15708]"/>
 
-     node
-	<node pkg="xsens_driver" exec="mtnode.py" name="xsens_driver" output="screen" >
-		<remap from="imu/data" to="MTI_imu/data_raw" />
-		<remap from="imu/mag" to="MTI_imu/mag" />
-		<param name="device" value="$(var device)"/>
-		<param name="baudrate" value="$(var baudrate)"/>
-		<param name="timeout" value="$(var timeout)"/>
-		<param name="initial_wait" value="$(var initial_wait)"/>
-		<param name="frame_id" value="$(var frame_id)"/>
-		<param name="frame_local" value="$(var frame_local)"/>
-		<param name="no_rotation_duration" value="$(var no_rotation_duration)"/>
-		<param name="angular_velocity_covariance_diagonal" value="$(var angular_velocity_covariance_diagonal)"/>
-		<param name="linear_acceleration_covariance_diagonal" value="$(var linear_acceleration_covariance_diagonal)"/>
-		<param name="orientation_covariance_diagonal" value="$(var orientation_covariance_diagonal)"/>
-	</node>
-
-	<node pkg="imu_filter_madgwick" exec="imu_filter_madgwick_node" name="imu_filter_node_magwick"  output="screen" >
-		<remap from="imu/data_raw" to="/MTI_imu/data_raw" />
-		<remap from="imu/mag" to="/MTI_imu/mag" />
-		<remap from="imu/data" to="/MTI_imu/data" />
-		<param name="gain" value="0.01"/>
-		<param name="use_mag" value="false"/>
-		<param name="fixed_frame" value="odom" />
-		<param name="publish_tf" value="false" />
-	</node>
+    <node pkg="xsens_driver" exec="mtnode.py" name="xsens_driver" output="screen" >
+        <remap from="imu/data" to="MTI_imu/data_raw" />
+        <remap from="imu/mag" to="MTI_imu/mag" />
+        <param name="device" value="$(var device)"/>
+        <param name="baudrate" value="$(var baudrate)"/>
+        <param name="timeout" value="$(var timeout)"/>
+        <param name="initial_wait" value="$(var initial_wait)"/>
+        <param name="frame_id" value="$(var frame_id)"/>
+        <param name="frame_local" value="$(var frame_local)"/>
+        <param name="no_rotation_duration" value="$(var no_rotation_duration)"/>
+        <param name="angular_velocity_covariance_diagonal" value="$(var angular_velocity_covariance_diagonal)"/>
+        <param name="linear_acceleration_covariance_diagonal" value="$(var linear_acceleration_covariance_diagonal)"/>
+        <param name="orientation_covariance_diagonal" value="$(var orientation_covariance_diagonal)"/>
+    </node>
+    <node pkg="norlab_imu_tools" exec="imu_bias_compensator_node" name="imu_bias_compensator" output="screen" >
+	<remap from="imu_topic_in" to="/MTI_imu/data_raw" />
+	<remap from="bias_topic_in" to="/MTI_imu/bias" />
+	<remap from="imu_topic_out" to="/MTI_imu/data_unbiased" />
+    </node>
+    
+    <node pkg="imu_filter_madgwick" exec="imu_filter_madgwick_node" name="imu_filter_node_magwick"  output="screen" >
+        <remap from="imu/data_raw" to="/MTI_imu/data_unbiased" />
+        <remap from="imu/mag" to="/MTI_imu/mag" />
+        <remap from="imu/data" to="/MTI_imu/data" />
+        <param name="gain" value="0.01"/>
+        <param name="use_mag" value="false"/>
+        <param name="fixed_frame" value="odom" />
+        <param name="publish_tf" value="false" />
+    </node>
 
     <include file="$(find-pkg-share norlab_imu_tools)/launch/imu_bias_observer_for_warthog_launch.xml"/>
 
