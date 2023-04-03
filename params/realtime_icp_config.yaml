@@ -1,6 +1,6 @@
 matcher:
   KDTreeMatcher:
-    knn: 6
+    knn: 3
     maxDist: 2.0
     epsilon: 1
 
@@ -20,7 +20,7 @@ outlierFilters:
 
 errorMinimizer:
   PointToPlaneErrorMinimizer:
-         force4DOF: 1
+         force4DOF: 0
 
 
 transformationCheckers:
