@@ -7,6 +7,8 @@
   <maintainer email="dominic.baril.1@ulaval.ca">Dominic Baril</maintainer>
   <license>BSD-2.0</license>
 
+  <depend>imu_benchmarking</depend>
+
   <buildtool_depend>ament_cmake</buildtool_depend>
 
   <export>

@@ -7,8 +7,9 @@
 	<!-- include file="$(find-pkg-share warthog_mapping)/launch/reachrs_front.launch.xml"/-->
 	<!-- include file="$(find-pkg-share warthog_mapping)/launch/reachrs_back.launch.xml"/ -->
 	<!-- include file="$(find-pkg-share warthog_mapping)/launch/reachrs_middle.launch.xml"/ -->
+	<include file="$(find-pkg-share imu_benchmarking)/experiment_launch.xml"/>
 
-	<node pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pcl_deskew_node" >
+	<node pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pcl_deskew_node">
 		<remap from="input_point_cloud" to="rslidar32_points" />
 		<remap from="output_point_cloud" to="rslidar32_points_deskewed" />
 	</node>
