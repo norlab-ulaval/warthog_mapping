@@ -52,6 +52,14 @@
 /diagnostics
 /imu_and_wheel_odom
 /joint_states
+/left_drive/status/speed
+/right_drive/status/speed
+/left_drive/status/battery_current
+/right_drive/status/battery_current
+/left_drive/status/battery_voltage
+/right_drive/status/battery_voltage
+/left_drive/velocity
+/right_drive/velocity
 /parameter_events
 /radar_data/b_scan_image
 /robot_description
