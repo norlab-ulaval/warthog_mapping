@@ -1,15 +1,29 @@
 <launch>
+	<!-- Lidars -->
 	<include file="$(find-pkg-share warthog_mapping)/launch/rslidar32.launch.xml"/>
 	<!-- include file="$(find-pkg-share warthog_mapping)/launch/rslidar16_right.launch.xml"/ -->
 	<!-- include file="$(find-pkg-share warthog_mapping)/launch/rslidar16_left.launch.xml"/ -->
+
+	<!-- IMUs -->	
 	<include file="$(find-pkg-share warthog_mapping)/launch/mti10.launch.xml"/>
-	<include file="$(find-pkg-share warthog_mapping)/launch/radar.launch.xml"/>
-	<include file="$(find-pkg-share norlab_imu_tools)/launch/warthog_imu_and_wheel_odom_launch.xml"/>
-	<!-- include file="$(find-pkg-share warthog_mapping)/launch/reachrs_front.launch.xml"/-->
-	<!-- include file="$(find-pkg-share warthog_mapping)/launch/reachrs_back.launch.xml"/ -->
-	<!-- include file="$(find-pkg-share warthog_mapping)/launch/reachrs_middle.launch.xml"/ -->
 	<include file="$(find-pkg-share imu_benchmarking)/experiment_launch.xml"/>
 
+	<!-- Radars -->
+	<include file="$(find-pkg-share warthog_mapping)/launch/radar.launch.xml"/>
+
+	<!-- Cameras -->
+	<include file="$(find-pkg-share warthog_mapping)/launch/basler_camera.launch.py"/>
+
+	<!-- Microphones -->
+	<include file="$(find-pkg-share warthog_mapping)/launch/audio_capture.launch.py"/>
+
+	<!-- GPS -->
+	<!-- include file="$(find-pkg-share warthog_mapping)/launch/reachrs_all.launch.xml"/-->
+
+	<!-- Odometry -->
+	<include file="$(find-pkg-share norlab_imu_tools)/launch/warthog_imu_and_wheel_odom_launch.xml"/>
+
+	<!-- Other -->
 	<node pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pcl_deskew_node">
 		<remap from="input_point_cloud" to="rslidar32_points" />
 		<remap from="output_point_cloud" to="rslidar32_points_deskewed" />
