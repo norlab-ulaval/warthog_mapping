@@ -11,8 +11,8 @@
 	<!-- Radars -->
 	<include file="$(find-pkg-share warthog_mapping)/launch/radar.launch.xml"/>
 
-	<!-- Cameras -->
-	<include file="$(find-pkg-share warthog_mapping)/launch/basler_camera.launch.py"/>
+	<!-- Basler camera -->
+	<!--include file="$(find-pkg-share warthog_mapping)/launch/basler_camera.launch.py"/-->
 
 	<!-- Microphones -->
 	<include file="$(find-pkg-share warthog_mapping)/launch/audio_capture.launch.py"/>
@@ -21,11 +21,15 @@
 	<!-- include file="$(find-pkg-share warthog_mapping)/launch/reachrs_all.launch.xml"/-->
 
 	<!-- Odometry -->
-	<include file="$(find-pkg-share norlab_imu_tools)/launch/warthog_imu_and_wheel_odom_launch.xml"/>
+	<!--include file="$(find-pkg-share norlab_imu_tools)/launch/warthog_imu_and_wheel_odom_launch.xml"/-->
 
 	<!-- Other -->
-	<node pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pcl_deskew_node">
+	<!-- <node pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pcl_deskew_node">
 		<remap from="input_point_cloud" to="rslidar32_points" />
 		<remap from="output_point_cloud" to="rslidar32_points_deskewed" />
-	</node>
+	</node> -->
+
+	<!-- ZED Camera -->
+	<include file="$(find-pkg-share warthog_mapping)/launch/zedx_camera.launch.py"/>
+
 </launch>

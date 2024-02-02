@@ -6,6 +6,8 @@
 		/MTI_imu/data_raw
 		/MTI_imu/data_unbiased
 		/MTI_imu/mag
+		/icp_odom
+		/map
 		/optimal_path
 		/target_path
 		/ref_path

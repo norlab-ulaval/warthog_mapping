@@ -1,4 +1,12 @@
 <launch>
+    <!-- Odometry -->
+    <include file="$(find-pkg-share norlab_imu_tools)/launch/warthog_imu_and_wheel_odom_launch.xml"/>
+
+    <node pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pcl_deskew_node">
+		<remap from="input_point_cloud" to="rslidar32_points" />
+		<remap from="output_point_cloud" to="rslidar32_points_deskewed" />
+	</node>
+
     <node pkg="norlab_icp_mapper_ros" exec="mapper_node" name="mapper_node" output="screen">
         <remap from="points_in" to="rslidar32_points_deskewed"/>
         <param name="robot_frame" value="base_link"/>
