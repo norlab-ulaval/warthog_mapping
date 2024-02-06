@@ -2,6 +2,7 @@
     <set_parameter name="use_sim_time" value="true"/>
     <include file="$(find-pkg-share norlab_imu_tools)/launch/altitude_computation_launch.xml"/>
     <include file="$(find-pkg-share norlab_imu_tools)/launch/warthog_imu_and_wheel_odom_launch.xml"/>
+    <include file="$(find-pkg-share warthog_description)/launch/description_launch.py"/>
     <node pkg="norlab_icp_mapper_ros" exec="mapper_node" name="mapper_node" output="screen">
         <remap from="points_in" to="/rslidar32_points_deskewed"/>
         <param name="sensor_frame" value="rslidar32"/>
@@ -25,5 +26,10 @@
         <param name="is_3D" value="true" />
         <param name="map_tf_publish_rate" value="100.0" />
         <param name="is_online" value="false"/>
+        <param name="max_idle_time" value="300.0"/>
+    </node>
+    <node pkg="pointcloud_motion_deskew" exec="pointcloud2_deskew_node" name="pcl_deskew_node">
+        <remap from="input_point_cloud" to="rslidar32_points" />
+        <remap from="output_point_cloud" to="rslidar32_points_deskewed" />
     </node>
 </launch>

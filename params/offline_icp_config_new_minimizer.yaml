@@ -21,8 +21,8 @@ transformationCheckers:
   - CounterTransformationChecker:
       maxIterationCount: 40
   - BoundTransformationChecker:
-      maxRotationNorm: 6.1
-      maxTranslationNorm: 5.00
+      maxRotationNorm: 60.0
+      maxTranslationNorm: 100.00
 
 inspector:
   NullInspector
