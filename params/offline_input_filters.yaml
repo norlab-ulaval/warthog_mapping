@@ -20,4 +20,6 @@
     prob: 0.2
     seed: 1
 
+- RemoveNaNDataPointsFilter:
+  
 - ObservationDirectionDataPointsFilter:

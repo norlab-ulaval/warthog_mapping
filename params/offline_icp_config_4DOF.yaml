@@ -9,9 +9,8 @@ outlierFilters:
     ratio: 0.7
 
 errorMinimizer:
-  PointToPlaneWithAltitudeErrorMinimizer:
+  PointToPlaneErrorMinimizer:
          force4DOF: 1
-         forceAltitude: 1
 
 transformationCheckers:
   - DifferentialTransformationChecker:
@@ -21,8 +20,8 @@ transformationCheckers:
   - CounterTransformationChecker:
       maxIterationCount: 40
   - BoundTransformationChecker:
-      maxRotationNorm: 60.0
-      maxTranslationNorm: 100.00
+      maxRotationNorm: 6.0
+      maxTranslationNorm: 5.00
 
 inspector:
   NullInspector
