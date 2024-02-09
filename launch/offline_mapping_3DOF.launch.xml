@@ -5,7 +5,7 @@
         <remap from="ref_temp_in" to="/dps310/temperature"/>
         <remap from="sensor_pressure_in" to="/dps310_1/pressure"/>
         <remap from="altitude_out" to="/warthog_dps310_1_reference_dps310_sphere/altitude" />
-        <param name="formula" value="$(var formula)"/>
+        <param name="formula" value="barometric"/>
     </node>
     <include file="$(find-pkg-share norlab_imu_tools)/launch/warthog_imu_and_wheel_odom_launch.xml"/>
     <include file="$(find-pkg-share warthog_description)/launch/description_launch.py"/>
