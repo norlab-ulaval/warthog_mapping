@@ -1,2 +1,6 @@
 - SurfaceNormalDataPointsFilter:
     knn: 30
+
+- RandomSamplingDataPointsFilter:
+    prob: 0.95
+    seed: 1
